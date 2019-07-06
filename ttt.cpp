@@ -113,6 +113,50 @@ void updateBoard(string board[BOARD_SIZE][BOARD_SIZE], int position, string turn
 bool gameOver(string board[BOARD_SIZE][BOARD_SIZE])
 {
   for (int i = 0; i < BOARD_SIZE; i++) {
+	  if (board[i][0] == "X" && board[i][1] == "X" && board[i][2] == "X") {
+		  cout << "X is the winner." << endl;
+		  return true;
+	  }
+	  else if (board[i][0] == "O" && board[i][1] == "O" && board[i][2] == "O") {
+		  cout << "O is the winner." << endl;
+		  return true;
+	  }
+   }
+	
+   for (int i = 0; i < BOARD_SIZE; i++) {
+	  if (board[0][i] == "X" && board[1][i] == "X" && board[2][i] == "X") {
+		  cout << "X is the winner." << endl;
+		  return true;
+	  }
+	  else if (board[0][i] == "O" && board[1][i] == "O" && board[2][i] == "O") {
+		  cout << "O is the winner." << endl;
+		  return true;
+	  }
+   }
+
+   if (board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") {
+	  cout << "X is the winner." << endl;
+	  return true;	   
+   }
+   if (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O") {
+	  cout << "O is the winner." << endl;
+	  return true;	   
+   }
+   if (board[0][2] == "X" && board[1][1] == "X" && board[2][0] == "X") {
+	  cout << "X is the winner." << endl;
+	  return true;	
+   }
+   if (board[0][2] == "O" && board[1][1] == "O" && board[2][0] == "O") {
+	  cout << "O is the winner." << endl;
+	  return true;	
+   }	
+
+   for (int i = 0; i < BOARD_SIZE; i++) {
+	   for (int j = 0; j < BOARD_SIZE; j++) {
+		   if (board[i][j] != "X" || board[i][j] != "O") 
+			   return false;
+	   }
+    }
 	  
   return false;
 }
