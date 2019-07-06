@@ -55,9 +55,13 @@ void playGame(string board[BOARD_SIZE][BOARD_SIZE])
  */
 void printBoard(string board[BOARD_SIZE][BOARD_SIZE])
 {
-  // STUB
-  // Put code which prints board here.
-}
+    for (int i = 0; i < BOARD_SIZE; i++) {
+	  for (int j = 0; j < BOARD_SIZE; j++) {
+		 cout << board[i][j] << "  ";
+	  }
+	  cout << endl;
+     }
+} 
 
 
 /*
@@ -73,9 +77,18 @@ void printBoard(string board[BOARD_SIZE][BOARD_SIZE])
  */
 int getMove(string board[BOARD_SIZE][BOARD_SIZE], string turn)
 {
-  // STUB
-  // Remove the line below, then implement this function.
-  return 0;
+  int move;
+  cout << "Enter your move (0-9) and hit enter." << endl;
+  cin >> move;
+  
+  int i = move / 3;
+  int j = move % 3;
+	
+  while (move > 8 || move < 0 || board[i][j] == "X" || board[i][j] == "O") {
+	  cout << "Invalid move. Please try again." << endl;
+	  cin >> move;
+  }
+  return move;
 }
 
 
@@ -85,8 +98,10 @@ int getMove(string board[BOARD_SIZE][BOARD_SIZE], string turn)
  */
 void updateBoard(string board[BOARD_SIZE][BOARD_SIZE], int position, string turn)
 {
-  // STUB
-  // You must implement this function
+  int i = position / 3;
+  int j = position % 3;
+
+  board[i][j] = turn;
 }
 
 /*
@@ -97,7 +112,7 @@ void updateBoard(string board[BOARD_SIZE][BOARD_SIZE], int position, string turn
  */
 bool gameOver(string board[BOARD_SIZE][BOARD_SIZE])
 {
-  // STUB
-  // Remove the line below, then implement this function.
+  for (int i = 0; i < BOARD_SIZE; i++) {
+	  
   return false;
 }
